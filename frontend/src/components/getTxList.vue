@@ -10,6 +10,10 @@
     
   </div>
 </template>
+
+!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="css" src="./css/general.css"></style>
+
 <script>
 import txTable from '@/components/TxTable'
 import Methods from '@/api/methods'
@@ -69,21 +73,3 @@ export default {
   
 }
 </script>
-
-!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

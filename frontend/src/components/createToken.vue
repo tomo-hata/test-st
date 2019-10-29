@@ -84,6 +84,9 @@
   </div>
 </template>
 
+!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="css" src="./css/general.css"></style>
+
 <script>
 /*
 createToken.vue
@@ -214,70 +217,3 @@ export default {
   
 }
 </script>
-
-!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-
-#overlay{
-  /*　要素を重ねた時の順番　*/
-  z-index:1;
-
-  /*　画面全体を覆う設定　*/
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color:rgba(0,0,0,0.5);
-
-  /*　画面の中央に要素を表示させる設定　*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-#content{
-  z-index:2;
-  width:60%;
-  padding: 1em;
-  background:#fff;
-}
-
-
-.item-list-is-border {
-  list-style: none;
-  padding: 0;
-  
-  border: solid 1px #bbb;
-  margin-bottom: 20px;
-}
- 
-li {
-  border-top: solid 1px #bbb;
-  margin-top: -1px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
- 
-}
-
-</style>
-
-
-
