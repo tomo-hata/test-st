@@ -98,23 +98,42 @@ router.post('/',function(req,res){
       deploy_ck = '';
     }
     
-    let rawData = {
-        '_id': _id,
-       'name': tokenName,
-       'symbol': symbol,
-       'type': tokenType,
-       'decimals': decimals,
-       'from': fromAddress,
-       'supply': supply,
-       'burnable': burnable,
-       'mintable': mintable,
-       'deploy': deploy_ck
-    };
+    let rawData;
+    
+    if ( _id == '') {
+      
+      rawData = {
+         'name': tokenName,
+         'symbol': symbol,
+         'type': tokenType,
+         'decimals': decimals,
+         'from': fromAddress,
+         'supply': supply,
+         'burnable': burnable,
+         'mintable': mintable,
+         'deploy': deploy_ck
+      };
+    }
+    else {
+      rawData = {
+          '_id': _id,
+         'name': tokenName,
+         'symbol': symbol,
+         'type': tokenType,
+         'decimals': decimals,
+         'from': fromAddress,
+         'supply': supply,
+         'burnable': burnable,
+         'mintable': mintable,
+         'deploy': deploy_ck
+      };   
+    }
     
     let rawDataStr = JSON.stringify(rawData);
     console.log('rowDataStr: ' + rawDataStr);
     
     var options = { 
+      //host: `{environment_id}-{service_id}-tokenfactory.us0-aws.kaleido.io`,
       host: api_host_tkfactory,
       path: '/api/v1/contracts',
       method: 'POST',
@@ -137,6 +156,8 @@ router.post('/',function(req,res){
       inner_res.on('data', function (chunk) {
         console.log('BODY: ' + chunk);
         let txdata = JSON.parse(chunk);
+        
+        console.log(txdata)
   
         
         require('date-utils');
